@@ -1,5 +1,5 @@
 package ut7.agenda.modelo;
-public class Contacto {
+public abstract class Contacto {
 	private String nombre;
 	private String apellidos;
 	private String telefono;
@@ -86,4 +86,6 @@ public class Contacto {
 				 "Tfno: " + telefono + " | " + "email: " + email + "\n");
 		return sb.toString();
 	}
+
+	public abstract String getFirmaEmail();
 }
