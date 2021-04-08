@@ -25,7 +25,10 @@ public class Personal extends Contacto {
 		DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd MMM yyyy");
 		String fechaCumple = ld.format(formateador);
 		return fechaCorrecta == fechaCumple;
+	}
 
+	public String getFirmaEmail() {
+		return "¡Un abrazo!";
 	}
 
 	public String toString() {

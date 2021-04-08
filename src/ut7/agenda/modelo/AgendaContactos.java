@@ -1,9 +1,9 @@
 package ut7.agenda.modelo;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class AgendaContactos {
 	private Map<Character, Set<Contacto>> agenda;
@@ -13,7 +13,7 @@ public class AgendaContactos {
 	}
 
 	public void añadirContacto() {
-		
+
 	}
 
 	public void contactosEnLetra() {
@@ -26,8 +26,9 @@ public class AgendaContactos {
 
 	@Override
 	public String toString() {
-
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append(false);
+		return sb.toString();
 	}
 
 	public List<Contacto> buscarContactos(String texto) {
