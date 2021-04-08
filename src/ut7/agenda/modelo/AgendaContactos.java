@@ -1,5 +1,6 @@
 package ut7.agenda.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -43,8 +44,15 @@ public class AgendaContactos {
 	}
 
 	public List<Personal> felicitar() {
-
-		return null;
+		List<Personal> lista = new ArrayList<Personal>();
+		String fecha = "";
+		for(Personal persona : lista) {
+			if(persona.esCumpleaños( fecha)) {
+				lista.add(persona);
+			}
+		}
+		
+		return lista;
 	}
 
 	public void personalesPorRelacion() {
