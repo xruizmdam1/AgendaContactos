@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Profesional extends Contacto {
 	private String nombreGuardado ;
-    
+	private enum firma {Atentamente, Saludos, Saludos_cordiales, Mis_mejores_deseos};
 		public Profesional(String nombre, String apellidos, String telefono,
 				String email) {
 		
@@ -28,11 +28,11 @@ public class Profesional extends Contacto {
 		}
 		@Override
 		public String getFirmaEmail() {
-		    int firma = new Random().nextInt(Firma.values().length);
-		   String email = String.valueOf(firma);
-		   return email;
+			int aux = new Random().nextInt(firma.values().length);
+			String email = String.valueOf(aux);
+			return email;
+
 		}
-	
 		@Override
 		public String toString() {
 			return "Profesional [nombreGuardado=" + nombreGuardado + ", getNombreGuardado()=" + getNombreGuardado()
