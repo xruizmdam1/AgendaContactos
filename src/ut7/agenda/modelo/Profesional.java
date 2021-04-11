@@ -36,4 +36,10 @@ public class Profesional extends Contacto {
 			 
 			}
 
+			@Override
+			public String toString() {
+				return "Profesional [nombreEmpresa=" + nombreEmpresa + ", getNombreEmpresa()=" + getNombreEmpresa()
+						+ ", getFirmaEmail()=" + getFirmaEmail() + "]";
+			}
+
 }
