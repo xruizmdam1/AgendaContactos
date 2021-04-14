@@ -8,10 +8,10 @@ import ut7.agenda.modelo.Contacto;
 public class AgendaIO {
 
 	public static void importar(AgendaContactos agenda) {
-		String[] lineas = obtenerLineasDatos();
-		for (String linea : lineas) {
-			Contacto cont = parsearLinea(linea);
-			agenda.añadirContacto(cont);
+		String[] datos = obtenerLineasDatos(); //se crea un array que contendra todos los datos del método
+		for (String linea : datos) {
+			Contacto contactoNuevo = parsearLinea(linea); // llamamos al método parseaLinea y metemos el String creado 
+			agenda.añadirContacto(contactoNuevo); // llamamos al método añadirContacto de la clase AgendaContactos 
 		}
 	}
 	

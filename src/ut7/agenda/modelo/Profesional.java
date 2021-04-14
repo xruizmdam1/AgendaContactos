@@ -21,8 +21,8 @@ public class Profesional extends Contacto {
 	}
 		@Override
 		public String getFirmaEmail() {
-			String[] firma = {"Atentamente", "Saludos", "Saludos cordiales", "Mis mejores deseos"}; 
-			return firma[(int) (Math.random() * 3)]; 
+			String[] firma = {"Atentamente", "Saludos", "Saludos cordiales", "Mis mejores deseos"}; //se crea un array para la firma 
+			return firma[(int) (Math.random() * 3)]; // se realiza un random
 		}
 		
 			private String letraMayuscula (String nombreEmpresa){
