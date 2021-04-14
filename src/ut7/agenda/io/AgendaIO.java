@@ -8,8 +8,13 @@ import ut7.agenda.modelo.Contacto;
 public class AgendaIO {
 
 	public static void importar(AgendaContactos agenda) {
-
+		String[] lineas = obtenerLineasDatos();
+		for (String linea : lineas) {
+			Contacto cont = parsearLinea(linea);
+			agenda.añadirContacto(cont);
+		}
 	}
+	
 
 	private static Contacto parsearLinea(String linea) {
 		return null;

@@ -44,7 +44,7 @@ public class AgendaContactos {
 	}
 
 	public List<Personal> felicitar() {
-		List<Personal> lista = new ArrayList<Personal>();
+		ArrayList<Personal> lista = new ArrayList<Personal>();
 		String fecha = "";
 		for(Personal persona : lista) {
 			if(persona.esCumpleaños( fecha)) {
