@@ -2,6 +2,9 @@ package ut7.agenda.io;
 
 import ut7.agenda.modelo.AgendaContactos;
 import ut7.agenda.modelo.Contacto;
+import ut7.agenda.modelo.Personal;
+import ut7.agenda.modelo.Profesional;
+import ut7.agenda.modelo.Relacion;
 
 /*
  * author ANTHONNY
@@ -19,8 +22,31 @@ public class AgendaIO {
 		}
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	private static Contacto parsearLinea(String linea) {
-		return null;
+
+		String[] datos = linea.split(","); // split para separar los parametros
+		int tipoDato = Integer.parseInt(datos[0].trim());
+		String nombre = datos[1].trim(); // variable para parametro nombre de la clase Personal
+		String apellidos = datos[2].trim();// variable para parametro apellidos de la clase Personal
+		String telefono = datos[3].trim();// variable para parametro telefono de la clase Personal
+		String email = datos[4].trim();// variable para parametro email de la clase Personal
+		String fecha = datos[5].trim();// variable para parametro fecha nacimiento de la clase Personal
+
+		Relacion relacion = null; // Variable de tipo Relacion
+		if (tipoDato != 1) { // si el tipo de dato no es uno
+			for (Relacion rel : Relacion.values()) { // entramos en un bucle que recorrera toda la clase Relacion
+				if (rel.equals(datos[6].trim().toUpperCase())) {
+					relacion = rel;
+				}
+			}
+			Personal personal = new Personal(nombre, apellidos, telefono, email, fecha, relacion);
+			return personal;
+		} else {
+			String empresa = datos[5].trim();
+			Profesional profesional = new Profesional(nombre, apellidos, telefono, email, empresa);
+			return profesional;
+		}
 
 	}
 
