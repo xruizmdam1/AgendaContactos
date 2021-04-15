@@ -1,6 +1,7 @@
 package ut7.agenda.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -118,7 +119,9 @@ public class AgendaContactos {
 
 	public List<Personal> personalesOrdenadosPorFechaNacimiento(char letra) {
 
-		return null;
+		List<Personal> personal = personalesEnLetra(letra);
+		Collections.sort(personal);
+		return personal;
 
 	}
 }
