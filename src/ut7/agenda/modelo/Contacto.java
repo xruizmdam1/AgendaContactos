@@ -54,7 +54,7 @@ public abstract class Contacto implements Comparable<Contacto>{
 		return email.hashCode();
 	}
 
-	public char getPrimeraLetra() {
+	public Character getPrimeraLetra() {
 		return apellidos.charAt(0);
 	}
 
