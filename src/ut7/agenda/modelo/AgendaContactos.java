@@ -52,9 +52,16 @@ public class AgendaContactos {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		
-		sb.append(this.getClass().getSimpleName()) 
-		
+		ArrayList<Contacto> ar = new ArrayList<>();
+		Set<Map.Entry<Character, Set<Contacto>>> set = agenda.entrySet();
+		Iterator<Map.Entry<Character, Set<Contacto>>> it = set.iterator();
+		while (it.hasNext()) {
+			Map.Entry<Character, Set<Contacto>> map = it.next();
+			for (Contacto contacto : map.getValue()) {
+				sb.append(this.getClass() + "\n" + contacto.getApellidos() + " " + "\n" + contacto.getNombre() + " "
+						+ "\n" + contacto.getTelefono() + " " + "\n" + contacto.getEmail() + " ");
+			}
+		}
 		return sb.toString();
 	}
 
