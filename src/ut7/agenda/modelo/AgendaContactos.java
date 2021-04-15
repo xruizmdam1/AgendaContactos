@@ -128,7 +128,31 @@ public class AgendaContactos {
 		return felicitados;
 	}
 
-	public void personalesPorRelacion() {
+	public Map<Relacion, List<String>> personalesPorRelacion() {
+
+		Map<Relacion, List<String>> mapa = new TreeMap<>();
+
+		for (Character i : agenda.keySet()) {
+			Iterator<Contacto> it = agenda.get(i).iterator();
+			while (it.hasNext()) {
+				Contacto c = it.next();
+				if (c instanceof Personal) {
+					String cadena = c.getNombre() + ' ' + c.getApellidos();
+					Relacion relacion = ((Personal) c).getRelacion();
+					if (mapa.containsKey(relacion)) {
+						mapa.get(relacion).add(cadena);
+					} else {
+						List<String> contactos = new ArrayList<>();
+						contactos.add(cadena);
+						mapa.put(relacion, contactos);
+
+					}
+
+				}
+			}
+
+		}
+		return mapa;
 
 	}
 

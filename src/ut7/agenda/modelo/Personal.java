@@ -21,6 +21,14 @@ public class Personal extends Contacto {
 
 	}
 
+	public Relacion getRelacion() {
+		return relacion;
+	}
+
+	public void setRelacion(Relacion relacion) {
+		this.relacion = relacion;
+	}
+
 	public boolean esCumpleaños(String fecha) {
 		return fechaNac.isEqual(LocalDate.now());
 	}
