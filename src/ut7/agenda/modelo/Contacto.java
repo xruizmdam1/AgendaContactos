@@ -69,7 +69,7 @@ public abstract class Contacto implements Comparable<Contacto>{
 			return false;
 		}
 		Contacto con = (Contacto) c;
-		return con.getClass() == c.getClass() && con.getApellidos().equals(c.getApellidos())
+		return con.getApellidos().equals(c.getApellidos())
 				&& con.getNombre().equals(c.getNombre()) && con.getEmail().equals(c.getEmail());
 	}
 
@@ -86,7 +86,7 @@ public abstract class Contacto implements Comparable<Contacto>{
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(apellidos + ", " + nombre + "\n" + "Tfno: " + telefono + " | " + "email: " + email + "\n");
+		sb.append(this.getClass().getSimpleName() + "\n " + "Nombre " + nombre + "\n" + "Tfno: " + telefono + " | " + "email: " + email);
 		return sb.toString();
 	}
 
