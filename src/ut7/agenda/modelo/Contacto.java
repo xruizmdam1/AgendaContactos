@@ -1,6 +1,6 @@
 package ut7.agenda.modelo;
 
-public abstract class Contacto {
+public abstract class Contacto implements Comparable<Contacto>{
 	private String nombre;
 	private String apellidos;
 	private String telefono;
@@ -74,7 +74,7 @@ public abstract class Contacto {
 	}
 
 	public int compareTo(Contacto otro) {
-		if (this.apellidos == otro.apellidos) {
+		if (this.apellidos.equals(otro.apellidos)) {
 			return 0;
 		}
 		if (this.apellidos.compareTo(otro.apellidos) > 0) {
