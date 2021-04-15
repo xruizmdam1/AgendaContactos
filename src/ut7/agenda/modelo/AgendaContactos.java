@@ -130,7 +130,7 @@ public class AgendaContactos {
 
 	public Map<Relacion, List<String>> personalesPorRelacion() {
 
-		Map<Relacion, List<String>> mapa = new TreeMap<>();
+		Map<Relacion, List<String>> mapita = new TreeMap<>();
 
 		for (Character i : agenda.keySet()) {
 			Iterator<Contacto> it = agenda.get(i).iterator();
@@ -139,12 +139,12 @@ public class AgendaContactos {
 				if (c instanceof Personal) {
 					String cadena = c.getNombre() + ' ' + c.getApellidos();
 					Relacion relacion = ((Personal) c).getRelacion();
-					if (mapa.containsKey(relacion)) {
-						mapa.get(relacion).add(cadena);
+					if (mapita.containsKey(relacion)) {
+						mapita.get(relacion).add(cadena);
 					} else {
 						List<String> contactos = new ArrayList<>();
 						contactos.add(cadena);
-						mapa.put(relacion, contactos);
+						mapita.put(relacion, contactos);
 
 					}
 
@@ -152,7 +152,7 @@ public class AgendaContactos {
 			}
 
 		}
-		return mapa;
+		return mapita;
 
 	}
 
