@@ -1,12 +1,16 @@
 package ut7.agenda.modelo;
+
 public abstract class Contacto {
 	private String nombre;
 	private String apellidos;
 	private String telefono;
 	private String email;
 
-	public Contacto(String nombre, String apellidos, String telefono,
-			String email) {
+	/*
+	 * @author XABIER
+	 */
+
+	public Contacto(String nombre, String apellidos, String telefono, String email) {
 		this.nombre = nombre.toUpperCase();
 		this.apellidos = apellidos.toUpperCase();
 		this.telefono = telefono;
@@ -49,11 +53,11 @@ public abstract class Contacto {
 	public int hashCode() {
 		return email.hashCode();
 	}
-	
+
 	public char getPrimeraLetra() {
 		return apellidos.charAt(0);
 	}
-	
+
 	public boolean equals(Contacto c) {
 		if (c == null) {
 			return false;
@@ -65,10 +69,10 @@ public abstract class Contacto {
 			return false;
 		}
 		Contacto con = (Contacto) c;
-		return con.getClass() == c.getClass() && con.getApellidos().equals(c.getApellidos()) &&
-			   con.getNombre().equals(c.getNombre()) && con.getEmail().equals(c.getEmail());
+		return con.getClass() == c.getClass() && con.getApellidos().equals(c.getApellidos())
+				&& con.getNombre().equals(c.getNombre()) && con.getEmail().equals(c.getEmail());
 	}
-	
+
 	public int compareTo(Contacto otro) {
 		if (this.apellidos == otro.apellidos) {
 			return 0;
@@ -78,12 +82,11 @@ public abstract class Contacto {
 		}
 		return -1;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(apellidos + ", " + nombre + "\n" +
-				 "Tfno: " + telefono + " | " + "email: " + email + "\n");
+		sb.append(apellidos + ", " + nombre + "\n" + "Tfno: " + telefono + " | " + "email: " + email + "\n");
 		return sb.toString();
 	}
 
