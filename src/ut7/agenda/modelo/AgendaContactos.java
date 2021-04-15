@@ -1,5 +1,7 @@
 package ut7.agenda.modelo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -103,15 +105,24 @@ public class AgendaContactos {
 	}
 
 	public List<Personal> felicitar() {
-		ArrayList<Personal> lista = new ArrayList<Personal>();
-		String fecha = "";
-		for (Personal persona : lista) {
-			if (persona.esCumpleaños(fecha)) {
-				lista.add(persona);
+		LocalDate fechaNac = LocalDate.now();
+		String fechaNacimiento = fechaNac.format(DateTimeFormatter.ofPattern("dd-MMM-yy"));
+		ArrayList<Personal> felicitados = new ArrayList<>();
+		Iterator<Map.Entry<Character, Set<Contacto>>> it = agenda.entrySet().iterator();
+
+		while (it.hasNext()) {
+			Map.Entry<Character, Set<Contacto>> cumpleaños = it.next();
+
+			for (Contacto contacto : cumpleaños.getValue()) {
+
+				if (contacto instanceof Personal) {
+					if (((Personal) contacto).esCumpleaños(fechaNacimiento) == true) {
+						felicitados.add((Personal) contacto);
+					}
+				}
 			}
 		}
-
-		return lista;
+		return felicitados;
 	}
 
 	public void personalesPorRelacion() {
