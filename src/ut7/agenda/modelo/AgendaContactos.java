@@ -2,6 +2,7 @@ package ut7.agenda.modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -116,14 +117,17 @@ public class AgendaContactos {
 	public void personalesPorRelacion() {
 
 	}
-	public int comparador(Personal persona1, Personal persona2) {
-		return persona1.getFechaNac().compareTo(persona2.getFechaNac());
-	}
+
 	public List<Personal> personalesOrdenadosPorFechaNacimiento(char letra) {
 
-		List<Personal> personal = personalesEnLetra(letra);
-		Collections.sort(personal);
-		return personal;
+		ArrayList<Personal> lista = new ArrayList<>();
+		Collections.sort(lista, new Comparator<Personal>() {
+			public int compare(Personal personal1, Personal personal2) {
+				return personal1.getFechaNac().compareTo(personal2.getFechaNac());
+			}
 
+		});
+		return lista;
 	}
+
 }
