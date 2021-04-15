@@ -25,6 +25,14 @@ public class Personal extends Contacto {
 		return fechaNac.isEqual(LocalDate.now());
 	}
 
+	public LocalDate getFechaNac() {
+		return fechaNac;
+	}
+
+	public void setFechaNac(LocalDate fechaNac) {
+		this.fechaNac = fechaNac;
+	}
+
 	public String getFirmaEmail() {
 		return "¡Un abrazo!";
 	}
