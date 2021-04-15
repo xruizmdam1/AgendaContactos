@@ -1,4 +1,5 @@
 package ut7.agenda.test;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ import ut7.agenda.modelo.Contacto;
 import ut7.agenda.modelo.Personal;
 import ut7.agenda.modelo.Relacion;
 
-public class TestAgenda {
+class TestAgenda {
 
 	public static void main(String[] args) {
 		AgendaContactos agenda = new AgendaContactos();
@@ -61,16 +62,13 @@ public class TestAgenda {
 
 	}
 
-	private static void personalesOrdenadosPorFecha(AgendaContactos agenda,
-			char letra) {
-		System.out.println("Personales en letra " + letra
-				+ " ordenados de < a > fecha de nacimiento");
+	private static void personalesOrdenadosPorFecha(AgendaContactos agenda, char letra) {
+		System.out.println("Personales en letra " + letra + " ordenados de < a > fecha de nacimiento");
 		List<Personal> personales = agenda.personalesEnLetra(letra);
 		if (personales == null) {
 			System.out.println(letra + " no está en la agenda");
 		} else {
-			agenda.personalesOrdenadosPorFechaNacimiento(letra)
-					.forEach(contacto -> System.out.println(contacto));
+			agenda.personalesOrdenadosPorFechaNacimiento(letra).forEach(contacto -> System.out.println(contacto));
 		}
 
 	}
@@ -81,8 +79,7 @@ public class TestAgenda {
 	}
 
 	private static void separador() {
-		System.out.println(
-				"------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------");
 
 	}
 
