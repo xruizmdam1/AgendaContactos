@@ -116,7 +116,9 @@ public class AgendaContactos {
 	public void personalesPorRelacion() {
 
 	}
-
+	public int comparador(Personal persona1, Personal persona2) {
+		return persona1.getFechaNac().compareTo(persona2.getFechaNac());
+	}
 	public List<Personal> personalesOrdenadosPorFechaNacimiento(char letra) {
 
 		List<Personal> personal = personalesEnLetra(letra);
