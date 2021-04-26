@@ -1,3 +1,7 @@
+/**
+ * @author Xabier, Catarina, Anthonny
+ */
+
 package ut7.agenda.modelo;
 
 import java.time.LocalDate;
@@ -11,10 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-
-/* 
- * @author XABIER, CATARINA, ANTHONNY
- */
 
 public class AgendaContactos {
 	private Map<Character, Set<Contacto>> agenda;

@@ -1,3 +1,7 @@
+/** 
+ * @author Xabier, Catarina, Anthonny
+ */
+
 package ut7.agenda.io;
 
 import ut7.agenda.modelo.AgendaContactos;
@@ -6,12 +10,10 @@ import ut7.agenda.modelo.Personal;
 import ut7.agenda.modelo.Profesional;
 import ut7.agenda.modelo.Relacion;
 
-/*
- * author ANTHONNY
- */
 /**
  * Utilidades para cargar la agenda
  */
+
 public class AgendaIO {
 
 	public static void importar(AgendaContactos agenda) {

@@ -1,14 +1,14 @@
+/** 
+ * @author Xabier, Catarina, Anthonny
+ */
+
 package ut7.agenda.modelo;
 
-public abstract class Contacto implements Comparable<Contacto>{
+public abstract class Contacto implements Comparable<Contacto> {
 	private String nombre;
 	private String apellidos;
 	private String telefono;
 	private String email;
-
-	/*
-	 * @author XABIER
-	 */
 
 	public Contacto(String nombre, String apellidos, String telefono, String email) {
 		this.nombre = nombre.toUpperCase();
@@ -69,8 +69,8 @@ public abstract class Contacto implements Comparable<Contacto>{
 			return false;
 		}
 		Contacto con = (Contacto) c;
-		return con.getApellidos().equals(c.getApellidos())
-				&& con.getNombre().equals(c.getNombre()) && con.getEmail().equals(c.getEmail());
+		return con.getApellidos().equals(c.getApellidos()) && con.getNombre().equals(c.getNombre())
+				&& con.getEmail().equals(c.getEmail());
 	}
 
 	public int compareTo(Contacto otro) {
@@ -86,7 +86,8 @@ public abstract class Contacto implements Comparable<Contacto>{
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getClass().getSimpleName() + "\n " + "Nombre " + nombre + "\n" + "Tfno: " + telefono + " | " + "email: " + email);
+		sb.append(this.getClass().getSimpleName() + "\n " + "Nombre " + nombre + "\n" + "Tfno: " + telefono + " | "
+				+ "email: " + email);
 		return sb.toString();
 	}
 

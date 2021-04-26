@@ -1,3 +1,7 @@
+/**
+ * @author Xabier, Catarina, Anthonny
+ */
+
 package ut7.agenda.test;
 
 import java.util.ArrayList;

@@ -1,11 +1,11 @@
+/** 
+ * @author Xabier, Catarina, Anthonny
+ */
+
 package ut7.agenda.modelo;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-/* 
- * @author CATARINA
- */
 
 public class Personal extends Contacto {
 

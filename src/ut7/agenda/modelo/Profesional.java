@@ -1,8 +1,8 @@
-package ut7.agenda.modelo;
-
-/* 
- * @author ANTHONNY
+/** 
+ * @author Xabier, Catarina, Anthonny
  */
+
+package ut7.agenda.modelo;
 
 public class Profesional extends Contacto {
 	private String nombreEmpresa;
