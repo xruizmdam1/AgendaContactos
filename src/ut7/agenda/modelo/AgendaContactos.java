@@ -62,27 +62,26 @@ public class AgendaContactos {
 		while (it.hasNext()) {
 			Map.Entry<Character, Set<Contacto>> map = it.next();
 			for (Contacto contacto : map.getValue()) {
-				sb.append(this.getClass() + "\n" + contacto.getApellidos() + " " + "\n" + contacto.getNombre() + " "
-						+ "\n" + contacto.getTelefono() + " " + "\n" + contacto.getEmail() + " ");
+				sb.append(contacto.toString());
 			}
 		}
 		return sb.toString();
 	}
 
 	public List<Contacto> buscarContactos(String texto) {
-		ArrayList<Contacto> buscarContactos = new ArrayList<>();
+		ArrayList<Contacto> buscaContactos = new ArrayList<>();
 
 		Set<Map.Entry<Character, Set<Contacto>>> grupo = agenda.entrySet();
 		Iterator<Map.Entry<Character, Set<Contacto>>> it = grupo.iterator();
 		while (it.hasNext()) {
 			Map.Entry<Character, Set<Contacto>> map = it.next();
 			for (Contacto contacto : map.getValue()) {
-				if (contacto.getApellidos().equals(texto) || contacto.getNombre().equals(texto)) {
-					buscarContactos.add(contacto);
+				if (contacto.getApellidos().equals(texto) || contacto.getNombre().contains(texto)) {
+					buscaContactos.add(contacto);
 				}
 			}
 		}
-		return buscarContactos;
+		return buscaContactos;
 	}
 
 	public List<Personal> personalesEnLetra(char letra) {
