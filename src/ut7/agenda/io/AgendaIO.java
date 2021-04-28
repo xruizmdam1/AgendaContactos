@@ -18,32 +18,34 @@ public class AgendaIO {
 
 	public static void importar(AgendaContactos agenda) {
 		String[] datos = obtenerLineasDatos(); // se crea un array que contendra todos los datos del método
-		for (String linea : datos) {
-			Contacto contactoNuevo = parsearLinea(linea); // llamamos al método parseaLinea y metemos el String creado
+		for (String dato : datos) {
+			Contacto contactoNuevo = parsearLinea(dato); // llamamos al método parseaLinea y metemos el String creado
 			agenda.añadirContacto(contactoNuevo); // llamamos al método añadirContacto de la clase AgendaContactos
 		}
+		
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
+	
+	@SuppressWarnings("unused")
 	private static Contacto parsearLinea(String linea) {
 
-		String[] datos = linea.split(","); // split para separar los parametros
+		String[] datos = linea.split("\\,+"); // split para separar los parametros
 		int tipoDato = Integer.parseInt(datos[0].trim());
 		String nombre = datos[1].trim(); // variable para parametro nombre de la clase Personal
 		String apellidos = datos[2].trim();// variable para parametro apellidos de la clase Personal
 		String telefono = datos[3].trim();// variable para parametro telefono de la clase Personal
 		String email = datos[4].trim();// variable para parametro email de la clase Personal
-		String fecha = datos[5].trim();// variable para parametro fecha nacimiento de la clase Personal
-
+		
 		Relacion relacion = null; // Variable de tipo Relacion
-		 Personal personal = new Personal(nombre, apellidos, telefono, email, fecha, relacion); 
+		 Personal personal ;
+		 Profesional profesional ;
 		if (tipoDato != 1) { // si el tipo de dato no es uno
+			String fecha = datos[5].trim();
 			Relacion.valueOf(datos[6].trim().toUpperCase());	
-				return personal;
+				return  personal =new Personal(nombre, apellidos, telefono, email, fecha, relacion); 
 		} else {
-			String empresa = datos[5].trim();
-			Profesional profesional = new Profesional(nombre, apellidos, telefono, email, empresa);
-			return profesional;
+			String empresa = datos[7].trim();
+			return  profesional = new Profesional(nombre, apellidos, telefono, email, empresa);
 		}
 
 	}
