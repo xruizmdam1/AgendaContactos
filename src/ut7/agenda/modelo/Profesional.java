@@ -4,8 +4,11 @@
 
 package ut7.agenda.modelo;
 
+import java.time.LocalDate;
+
 public class Profesional extends Contacto {
 	private String nombreEmpresa;
+	private LocalDate fechaNac;
 
 	public Profesional(String nombre, String apellidos, String telefono, String email, String nombreEmpresa) {
 		super(nombre, apellidos, telefono, email);
@@ -39,8 +42,18 @@ public class Profesional extends Contacto {
 
 	@Override
 	public String toString() {
-		return "Profesional [nombreEmpresa=" + nombreEmpresa + ", getNombreEmpresa()=" + getNombreEmpresa()
-				+ ", getFirmaEmail()=" + getFirmaEmail() + "]";
+		return super.toString();
+	}
+
+	@Override
+	public boolean esCumpleaños() {
+		LocalDate hoy = LocalDate.now();
+		return fechaNac.getDayOfMonth() == hoy.getDayOfMonth() && fechaNac.getMonth() == hoy.getMonth();
+	}
+
+	@Override
+	public LocalDate getFechaNac() {
+		return fechaNac;
 	}
 
 }

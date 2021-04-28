@@ -104,11 +104,6 @@ public class AgendaContactos {
 	}
 
 	public List<Personal> felicitar() {
-		LocalDate fechaNac = LocalDate.now(); // se cre variabke de tipo localDate
-		String fechaNacimiento = fechaNac.format(DateTimeFormatter.ofPattern("dd-MMM-yy")); // convierto la variable en
-																							// un string
-		// realice esto para poder argumentar parametros al llamar al método
-		// escumpleaños
 		ArrayList<Personal> felicitados = new ArrayList<>();
 		Iterator<Map.Entry<Character, Set<Contacto>>> it = agenda.entrySet().iterator();
 
@@ -118,7 +113,7 @@ public class AgendaContactos {
 			for (Contacto contacto : cumpleaños.getValue()) {
 
 				if (contacto instanceof Personal) {
-					if (((Personal) contacto).esCumpleaños(fechaNacimiento) == true) {
+					if (contacto.esCumpleaños()) {
 						felicitados.add((Personal) contacto);
 					}
 				}

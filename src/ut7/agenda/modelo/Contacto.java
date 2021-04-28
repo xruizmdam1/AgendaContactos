@@ -4,6 +4,8 @@
 
 package ut7.agenda.modelo;
 
+import java.time.LocalDate;
+
 public abstract class Contacto implements Comparable<Contacto> {
 	private String nombre;
 	private String apellidos;
@@ -91,5 +93,7 @@ public abstract class Contacto implements Comparable<Contacto> {
 		return sb.toString();
 	}
 
+	public abstract boolean esCumpleaños();
 	public abstract String getFirmaEmail();
+	public abstract LocalDate getFechaNac(); 
 }
