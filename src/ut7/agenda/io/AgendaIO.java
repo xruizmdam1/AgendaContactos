@@ -36,14 +36,10 @@ public class AgendaIO {
 		String fecha = datos[5].trim();// variable para parametro fecha nacimiento de la clase Personal
 
 		Relacion relacion = null; // Variable de tipo Relacion
+		 Personal personal = new Personal(nombre, apellidos, telefono, email, fecha, relacion); 
 		if (tipoDato != 1) { // si el tipo de dato no es uno
-			for (Relacion rel : Relacion.values()) { // entramos en un bucle que recorrera toda la clase Relacion
-				if (rel.equals(datos[6].trim().toUpperCase())) {
-					relacion = rel;
-				}
-			}
-			Personal personal = new Personal(nombre, apellidos, telefono, email, fecha, relacion);
-			return personal;
+			Relacion.valueOf(datos[6].trim().toUpperCase());	
+				return personal;
 		} else {
 			String empresa = datos[5].trim();
 			Profesional profesional = new Profesional(nombre, apellidos, telefono, email, empresa);
