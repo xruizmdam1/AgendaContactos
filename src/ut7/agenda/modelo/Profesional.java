@@ -40,11 +40,7 @@ public class Profesional extends Contacto {
 
 	}
 
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
+	
 	@Override
 	public boolean esCumpleaños() {
 		LocalDate hoy = LocalDate.now();
@@ -55,5 +51,11 @@ public class Profesional extends Contacto {
 	public LocalDate getFechaNac() {
 		return fechaNac;
 	}
+
+	public String toString() {
+		super.toString();
+		return ("Fecha de Nacimiento:" + fechaNac +"\n" + "Nombre de la Empresa" + nombreEmpresa); 
+	}
+
 
 }
