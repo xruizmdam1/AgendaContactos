@@ -29,8 +29,9 @@ public class Personal extends Contacto {
 		this.relacion = relacion;
 	}
 
-	public boolean esCumpleaños(String fecha) {
-		return fechaNac.isEqual(LocalDate.now());
+	public boolean esCumpleaños() {
+		LocalDate hoy = LocalDate.now();
+		return fechaNac.getDayOfMonth() == hoy.getDayOfMonth() && fechaNac.getMonth() == hoy.getMonth();
 	}
 
 	public LocalDate getFechaNac() {
@@ -49,4 +50,6 @@ public class Personal extends Contacto {
 		super.toString();
 		return ("Fecha Nacimiento: " + fechaNac + "\n" + "Relación: " + relacion);
 	}
+
+	
 }
