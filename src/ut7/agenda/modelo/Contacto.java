@@ -88,7 +88,7 @@ public abstract class Contacto implements Comparable<Contacto> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getClass().getSimpleName() + "\n " + "Nombre " + nombre + "\n" + "Tfno: " + telefono + " | "
+		sb.append(this.getClass().getSimpleName() + "\n " + "Nombre: " + nombre + "\n" + "Tfno: " + telefono + " | "
 				+ "email: " + email);
 		return sb.toString();
 	}
