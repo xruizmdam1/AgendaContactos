@@ -53,8 +53,9 @@ public class Profesional extends Contacto {
 	}
 
 	public String toString() {
-		super.toString();
-		return ("Fecha de Nacimiento:" + fechaNac +"\n" + "Nombre de la Empresa" + nombreEmpresa); 
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "Fecha de Nacimiento:" + fechaNac +"\n" + "Nombre de la Empresa" + nombreEmpresa);
+		return sb.toString();
 	}
 
 
