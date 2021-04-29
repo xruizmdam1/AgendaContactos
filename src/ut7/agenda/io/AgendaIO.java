@@ -58,26 +58,16 @@ public class AgendaIO {
 		entrada.close();
 	}
 
-	@SuppressWarnings("unused")
+	
 	private static Contacto parsearLinea(String linea) {
 
 		String[] datos = linea.split("\\,+"); // split para separar los parametros
 		int tipoDato = Integer.parseInt(datos[0].trim());
-		String nombre = datos[1].trim(); // variable para parametro nombre de la clase Personal
-		String apellidos = datos[2].trim();// variable para parametro apellidos de la clase Personal
-		String telefono = datos[3].trim();// variable para parametro telefono de la clase Personal
-		String email = datos[4].trim();// variable para parametro email de la clase Personal
-
-		Relacion relacion = null; // Variable de tipo Relacion
-		Personal personal;
-		Profesional profesional;
-		if (tipoDato != 1) { // si el tipo de dato no es uno
-			String fecha = datos[5].trim();
-			Relacion.valueOf(datos[6].trim().toUpperCase());
-			return personal = new Personal(nombre, apellidos, telefono, email, fecha, relacion);
-		} else {
-			String empresa = datos[7].trim();
-			return profesional = new Profesional(nombre, apellidos, telefono, email, empresa);
-		}
+		if (tipoDato != 1) { 
+			return new Personal(datos[1].trim(),datos[2].trim(),datos[3].trim(),
+					datos[4].trim(),datos[5].trim(),Relacion.valueOf(datos[6].trim()));
+		} 
+		return new Profesional(datos[1].trim(),datos[2].trim(),datos[3].trim(),datos[4].trim(),datos[5].trim());
+		
 	}
 }
