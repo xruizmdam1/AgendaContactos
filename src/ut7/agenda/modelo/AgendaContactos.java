@@ -83,20 +83,15 @@ public class AgendaContactos {
 	}
 
 	public List<Personal> personalesEnLetra(char letra) {
+		letra = Character.toUpperCase(letra);
 		ArrayList<Personal> personalesEnLetra = new ArrayList<>();
-
-		Set<Map.Entry<Character, Set<Contacto>>> grupito = agenda.entrySet();
-		Iterator<Map.Entry<Character, Set<Contacto>>> it = grupito.iterator();
-		while (it.hasNext()) {
-			Map.Entry<Character, Set<Contacto>> mapita = it.next();
-			for (Contacto contacto : mapita.getValue()) {
-				if (contacto instanceof Personal) {
-					if (contacto.getPrimeraLetra().equals(letra)) {
-						personalesEnLetra.add((Personal) contacto);
-					}
+		for (Contacto contacto : agenda.get(letra)) {
+			if (contacto instanceof Personal) {
+				if (contacto.getPrimeraLetra().equals(letra)) {
+					personalesEnLetra.add((Personal) contacto);
 				}
-				return personalesEnLetra;
 			}
+			return personalesEnLetra;
 		}
 		return null;
 	}
