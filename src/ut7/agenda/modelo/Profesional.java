@@ -13,7 +13,6 @@ public class Profesional extends Contacto {
 	public Profesional(String nombre, String apellidos, String telefono, String email, String nombreEmpresa) {
 		super(nombre, apellidos, telefono, email);
 		this.setNombreEmpresa(letraMayuscula(nombreEmpresa));
-
 	}
 
 	public String getNombreEmpresa() {
@@ -53,9 +52,7 @@ public class Profesional extends Contacto {
 	}
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(super.toString() + "Fecha de Nacimiento:" + fechaNac +"\n" + "Nombre de la Empresa" + nombreEmpresa);
-		return sb.toString();
+		return super.toString() + "\n" + "Empresa: " + getNombreEmpresa() + "\n";
 	}
 
 

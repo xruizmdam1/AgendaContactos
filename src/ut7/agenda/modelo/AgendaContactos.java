@@ -22,7 +22,7 @@ public class AgendaContactos {
 	}
 
 	public void añadirContacto(Contacto contacto) {
-		if (!agenda.containsKey(contacto.getNombre())) {
+		if (!agenda.containsKey(contacto.getPrimeraLetra())) {
 			HashSet<Contacto> hs = new HashSet<>();
 			hs.add(contacto);
 			agenda.put(contacto.getPrimeraLetra(), hs);

@@ -47,8 +47,7 @@ public class Personal extends Contacto {
 	}
 
 	public String toString() {
-		super.toString();
-		return ("Fecha Nacimiento: " + fechaNac + "\n" + "Relación: " + relacion);
+		return super.toString() + "\nFecha Nacimiento: " + fechaNac + "\n" + "Relación: " + relacion + "\n";
 	}
 
 	
