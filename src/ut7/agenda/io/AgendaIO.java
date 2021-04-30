@@ -42,13 +42,18 @@ public class AgendaIO {
 			String linea = entrada.readLine();
 			while (linea != null) {
 				agenda.añadirContacto(parsearLinea(linea));
+				linea = entrada.readLine();
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("Fichero no encontrado: " + e.getMessage());
 		} catch (IOException e) {
 			System.out.println("Error al leer linea: " + e.getMessage());
 			contador++;
-		} finally {
+		}
+			catch (IllegalArgumentException e) {
+				System.out.println("Error en argumentos: " + e.getMessage());
+			}
+		 finally {
 			try {
 				entrada.close();
 			} catch (IOException e) {
@@ -85,10 +90,7 @@ public class AgendaIO {
 		if (tipoDato != 1) { 
 			return new Personal(datos[1].trim(),datos[2].trim(),datos[3].trim(),
 					datos[4].trim(),datos[5].trim(),Relacion.valueOf(datos[6].trim()));
-		} 
-		return new Profesional(datos[1].trim(),datos[2].trim(),datos[3].trim(),datos[4].trim(),datos[5].trim());
-			
-	}
-
-	
+		}
+			return new Profesional(datos[1].trim(),datos[2].trim(),datos[3].trim(),datos[4].trim(),datos[5].trim());
+		}	 
 }

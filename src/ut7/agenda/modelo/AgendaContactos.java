@@ -74,7 +74,7 @@ public class AgendaContactos {
 		while (it.hasNext()) {
 			Map.Entry<Character, Set<Contacto>> map = it.next();
 			for (Contacto contacto : map.getValue()) {
-				if (contacto.getApellidos().equals(texto) || contacto.getNombre().contains(texto)) {
+				if (contacto.getApellidos().contains(texto) || contacto.getNombre().contains(texto)) {
 					buscaContactos.add(contacto);
 				}
 			}
@@ -91,9 +91,8 @@ public class AgendaContactos {
 					personalesEnLetra.add((Personal) contacto);
 				}
 			}
-			return personalesEnLetra;
 		}
-		return null;
+		return personalesEnLetra;
 	}
 
 	public List<Personal> felicitar() {
@@ -145,7 +144,11 @@ public class AgendaContactos {
 
 	public List<Personal> personalesOrdenadosPorFechaNacimiento(char letra) {
 
-		ArrayList<Personal> lista = new ArrayList<>();
+		List<Personal> lista = new ArrayList<>();
+		if (!agenda.containsKey(letra)) {
+			return null;
+		}
+		lista = personalesEnLetra(letra);
 		Collections.sort(lista, new Comparator<Personal>() {
 			public int compare(Personal personal1, Personal personal2) {
 				return personal1.getFechaNac().compareTo(personal2.getFechaNac());
@@ -154,5 +157,4 @@ public class AgendaContactos {
 		});
 		return lista;
 	}
-
 }
