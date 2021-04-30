@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.format.DateTimeParseException;
 
 import ut7.agenda.modelo.AgendaContactos;
 import ut7.agenda.modelo.Contacto;
@@ -25,6 +26,13 @@ import ut7.agenda.modelo.Relacion;
 
 public class AgendaIO {
 
+/**
+ * Se extrae la información del fichero que se proporciona y se añade el contacto a la agenda
+ * haciendo uso de un método de la clase AgendaContactos
+ * @param agenda
+ * @param nombre
+ * @return
+ */
 	public static int importar(AgendaContactos agenda, String nombre) {
 		File f = new File(nombre);
 		BufferedReader entrada = null;
@@ -49,7 +57,12 @@ public class AgendaIO {
 		}
 		return contador;
 	}
-
+/**
+ * Guardamos los contactos personales agrupados por la relación en el fichero 
+ * @param agenda
+ * @param nombre
+ * @throws IOException
+ */
 	public static void exportarPersonales(AgendaContactos agenda, String nombre) throws IOException {
 
 		PrintWriter entrada = null;
@@ -58,9 +71,15 @@ public class AgendaIO {
 		entrada.close();
 	}
 
-	
-	private static Contacto parsearLinea(String linea) {
-
+	/**
+	 * Tiene un parametro de tipo String de la cual vamos a extraer sus datos para crear un contacto
+	 * @param linea
+	 *  @throws DateTimeParseException
+	 * @throws IllegalArgumentException
+	 * @throws NumberFormatException
+	 */
+	private static Contacto parsearLinea(String linea) 
+			throws NumberFormatException, DateTimeParseException, IllegalArgumentException {
 		String[] datos = linea.split("\\,+"); // split para separar los parametros
 		int tipoDato = Integer.parseInt(datos[0].trim());
 		if (tipoDato != 1) { 
@@ -68,6 +87,8 @@ public class AgendaIO {
 					datos[4].trim(),datos[5].trim(),Relacion.valueOf(datos[6].trim()));
 		} 
 		return new Profesional(datos[1].trim(),datos[2].trim(),datos[3].trim(),datos[4].trim(),datos[5].trim());
-		
+			
 	}
+
+	
 }
