@@ -21,7 +21,7 @@ import ut7.agenda.modelo.Profesional;
 import ut7.agenda.modelo.Relacion;
 
 /**
- * Utilidades para cargar la agenda
+ * Utilidades para cargar la agenda de contactos
  */
 
 public class AgendaIO {
