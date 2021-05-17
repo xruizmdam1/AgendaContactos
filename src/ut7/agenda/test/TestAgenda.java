@@ -4,6 +4,7 @@
 
 package ut7.agenda.test;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -89,4 +90,10 @@ class TestAgenda {
 
 	}
 
+	private static void exportarPersonales(AgendaContactos agenda) {
+		try {
+			AgendaIO.exportarPersonales(agenda, "");
+		} catch (IOException e) {
+			System.out.println("Error al exportar personales");
+		}
 }
