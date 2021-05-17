@@ -50,8 +50,7 @@ public class GuiAgenda extends Application {
 		Scene scene = new Scene(root, 1100, 700);
 		stage.setScene(scene);
 		stage.setTitle("Agenda de contactos");
-		scene.getStylesheets().add(getClass().getResource("/application.css")
-		                    .toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
 		stage.show();
 
 	}
@@ -86,6 +85,7 @@ public class GuiAgenda extends Application {
 	private GridPane crearPanelLetras() {
 		// a completar
 		GridPane panel = new GridPane();
+		panel.setGridLinesVisible(true);
 
 		return panel;
 	}
