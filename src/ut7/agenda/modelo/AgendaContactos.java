@@ -117,7 +117,6 @@ public class AgendaContactos {
 	public Map<Relacion, List<String>> personalesPorRelacion() {
 
 		Map<Relacion, List<String>> mapita = new TreeMap<>();
-
 		for (Character i : agenda.keySet()) {
 			Iterator<Contacto> it = agenda.get(i).iterator();
 			while (it.hasNext()) {
@@ -131,12 +130,9 @@ public class AgendaContactos {
 						List<String> contactos = new ArrayList<>();
 						contactos.add(cadena);
 						mapita.put(relacion, contactos);
-
 					}
-
 				}
 			}
-
 		}
 		return mapita;
 

@@ -17,7 +17,7 @@ import ut7.agenda.modelo.Relacion;
 class TestAgenda {
 
 	private static final String FICHERO = "agenda.csv";
-	
+
 	public static void main(String[] args) {
 		AgendaContactos agenda = new AgendaContactos();
 		AgendaIO.importar(agenda, FICHERO);
