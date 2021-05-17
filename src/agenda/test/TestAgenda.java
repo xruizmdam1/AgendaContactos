@@ -2,18 +2,18 @@
  * @author Xabier, Catarina, Anthonny
  */
 
-package ut7.agenda.test;
+package agenda.test;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-import ut7.agenda.io.AgendaIO;
-import ut7.agenda.modelo.AgendaContactos;
-import ut7.agenda.modelo.Contacto;
-import ut7.agenda.modelo.Personal;
-import ut7.agenda.modelo.Relacion;
+import agenda.io.AgendaIO;
+import agenda.modelo.AgendaContactos;
+import agenda.modelo.Contacto;
+import agenda.modelo.Personal;
+import agenda.modelo.Relacion;
 
 class TestAgenda {
 
@@ -96,4 +96,5 @@ class TestAgenda {
 		} catch (IOException e) {
 			System.out.println("Error al exportar personales");
 		}
+	}
 }

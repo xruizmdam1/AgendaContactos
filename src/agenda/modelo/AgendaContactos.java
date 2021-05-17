@@ -2,7 +2,7 @@
  * @author Xabier, Catarina, Anthonny
  */
 
-package ut7.agenda.modelo;
+package agenda.modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;
