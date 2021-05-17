@@ -6,11 +6,11 @@ package ut7.agenda.io;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.time.format.DateTimeParseException;
 
@@ -34,11 +34,11 @@ public class AgendaIO {
  * @return
  */
 	public static int importar(AgendaContactos agenda, String nombre) {
-		File f = new File(nombre);
+		InputStream input = AgendaIO.class.getClassLoader().getResourceAsStream(nombre);
 		BufferedReader entrada = null;
 		int contador = 0;
 		try {
-			entrada = new BufferedReader(new FileReader(f));
+			entrada = new BufferedReader(new InputStreamReader(input));
 			String linea = entrada.readLine();
 			while (linea != null) {
 				agenda.añadirContacto(parsearLinea(linea));
