@@ -50,11 +50,8 @@ public class GuiAgenda extends Application {
 		Scene scene = new Scene(root, 1100, 700);
 		stage.setScene(scene);
 		stage.setTitle("Agenda de contactos");
-<<<<<<< HEAD
 		scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
-=======
 		scene.getStylesheets().add(("file:application.css"));
->>>>>>> refs/remotes/origin/master
 		stage.show();
 
 	}
