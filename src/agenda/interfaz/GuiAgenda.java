@@ -86,7 +86,6 @@ public class GuiAgenda extends Application {
 		// a completar
 		GridPane panel = new GridPane();
 		panel.setGridLinesVisible(true);
-
 		return panel;
 	}
 
