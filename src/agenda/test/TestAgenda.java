@@ -92,7 +92,7 @@ class TestAgenda {
 
 	private static void exportarPersonales(AgendaContactos agenda) {
 		try {
-			AgendaIO.exportarPersonales(agenda, "");
+			AgendaIO.exportarPersonales(agenda, "ficheroAgenda.txt");
 		} catch (IOException e) {
 			System.out.println("Error al exportar personales");
 		}
