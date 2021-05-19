@@ -150,7 +150,7 @@ public class GuiAgenda extends Application {
 	private void importarAgenda() {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("*.csv"));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
@@ -179,7 +179,7 @@ public class GuiAgenda extends Application {
 		TextInputDialog texto = new TextInputDialog("Introduzca el nombre del fichero");
 		texto.setContentText("Nombre para el fichero");
 		texto.showAndWait();
-		itemImportar.setDisable(true);
+
 		itemExportarPersonales.setDisable(false);
 		if (texto == null) {
 			AgendaIO.exportarPersonales(agenda, texto.getResult());
