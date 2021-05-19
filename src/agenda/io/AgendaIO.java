@@ -58,7 +58,7 @@ public class AgendaIO {
 		} finally {
 			try {
 				entrada.close();
-			} catch (IOException e) {
+			} catch (IOException | NullPointerException e) {
 				System.out.println("Error al cerrar entrada: " + e.getMessage());
 			}
 		}

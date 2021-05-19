@@ -148,21 +148,21 @@ public class GuiAgenda extends Application {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
 		fichero.setInitialDirectory(new File("."));
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.java"));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
 		}
 		System.out.println("el nº de líneas erróneas detectadas");
 
-		AgendaIO.importar(agenda, f.getName());
+		AgendaIO.importar(agenda, f.getAbsolutePath());
 	}
 
 	private void exportarPersonales() throws IOException {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
 		fichero.setInitialDirectory(new File("."));
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.java"));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
