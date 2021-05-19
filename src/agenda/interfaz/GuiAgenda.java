@@ -97,13 +97,15 @@ public class GuiAgenda extends Application {
 		Menu menu = new Menu ("Archivo");
 		itemImportar = new MenuItem("Importar Agenda");
 		itemImportar.setAccelerator(KeyCombination.keyCombination("Ctrl + l"));
+		itemImportar.setOnAction(importar -> importarAgenda());
 		
 		itemExportarPersonales = new MenuItem("Exportar agenda");
 		itemExportarPersonales.setAccelerator(KeyCombination.keyCombination("Ctrl + E"));
+		itemExportarPersonales.setOnAction(exportar -> exportarPersonales());
 		
 		itemSalir = new MenuItem("Salir");
 		itemSalir.setAccelerator(KeyCombination.keyCombination("Ctrl + S"));
-		
+		itemSalir.setOnAction(salir -> salir());
 		menu.getItems().addAll(itemImportar,itemExportarPersonales,itemSalir);
 		barra.getMenus().add(menu);
 		return barra;
