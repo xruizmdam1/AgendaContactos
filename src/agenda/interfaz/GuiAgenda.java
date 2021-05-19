@@ -1,7 +1,8 @@
 package agenda.interfaz;
 
-import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
+import java.io.File;
 
+import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -18,6 +19,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class GuiAgenda extends Application {
@@ -134,13 +137,23 @@ public class GuiAgenda extends Application {
 	}
 
 	private void importarAgenda() {
-		// a completar
+		FileChooser fichero = new FileChooser();
+		 fichero.setTitle("Ingresa el nombre del fichero");
+		 fichero.setInitialDirectory(new File("."));
+		 fichero.getExtensionFilters()
+		 .addAll(new ExtensionFilter("java",
+		 "*.java"));
+		 File f = fichero.showOpenDialog(null);
+		 if (f != null) {
+		 System.out.println("Fichero elegido: "
+		 + f.getName());
+		 }
 
+		 AgendaIO.importar(agenda, f.getName());
 	}
 
 	private void exportarPersonales() {
-		// a completar
-
+		
 	}
 
 	/**
