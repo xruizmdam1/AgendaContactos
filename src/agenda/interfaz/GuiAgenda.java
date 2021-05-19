@@ -9,7 +9,10 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -147,15 +150,16 @@ public class GuiAgenda extends Application {
 	private void importarAgenda() {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
-		fichero.setInitialDirectory(new File("."));
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("*.csv"));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
 		}
-		System.out.println("el nº de líneas erróneas detectadas");
 
-		AgendaIO.importar(agenda, f.getAbsolutePath());
+		itemImportar.setDisable(true);
+		itemExportarPersonales.setDisable(false);
+		int i = AgendaIO.importar(agenda, f.getAbsolutePath());
+		areaTexto.setText("Importada agenda\n\n Número de errores :" + i);
 	}
 
 	private void exportarPersonales() throws IOException {
@@ -205,16 +209,22 @@ public class GuiAgenda extends Application {
 
 	private void buscar() {
 		clear();
-		// a completar
+
+		agenda.felicitar();
 
 		cogerFoco();
 
 	}
 
 	private void about() {
-		// DialogPane dialogPane = alert.getDialogPane();
-		// dialogPane.getStylesheets().add(getClass().
-		// getResource("/application.css").toExternalForm());
+		Alert alerta = new Alert(AlertType.INFORMATION);
+		alerta.setTitle("About de Agenda");
+		alerta.setHeaderText(null);
+		alerta.setContentText("Mi agenda contactos");
+
+		DialogPane dialogPane = alerta.getDialogPane();
+		dialogPane.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
+		alerta.showAndWait();
 
 	}
 
