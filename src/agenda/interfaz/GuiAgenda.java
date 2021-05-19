@@ -204,13 +204,15 @@ public class GuiAgenda extends Application {
 
 	private void felicitar() {
 		clear();
+		String str = "";
+		str += java.time.LocalDate.now() + "\n";
 		agenda.felicitar();
+		areaTexto.setText(str.toString());
+
 	}
 
 	private void buscar() {
 		clear();
-
-		agenda.felicitar();
 
 		cogerFoco();
 
