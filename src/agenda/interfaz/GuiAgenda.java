@@ -1,5 +1,7 @@
 package agenda.interfaz;
 
+import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
+
 import agenda.modelo.AgendaContactos;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -92,7 +94,7 @@ public class GuiAgenda extends Application {
 	}
 
 	private MenuBar crearBarraMenu() {
-		// a completar
+		
 		MenuBar barra = new MenuBar();
 		Menu menu = new Menu ("Archivo");
 		itemImportar = new MenuItem("Importar Agenda");
@@ -108,6 +110,26 @@ public class GuiAgenda extends Application {
 		itemSalir.setOnAction(salir -> salir());
 		menu.getItems().addAll(itemImportar,itemExportarPersonales,itemSalir);
 		barra.getMenus().add(menu);
+		
+		
+		Menu menu2 = new Menu("Opciones");
+		itemBuscar = new MenuItem("Buscar");
+		itemBuscar.setAccelerator(KeyCombination.keyCombination("Ctrl + B"));
+		itemBuscar.setOnAction(buscar -> buscar());
+		
+		itemFelicitar = new MenuItem("Felicitar");
+		itemFelicitar.setAccelerator(KeyCombination.keyCombination("Ctrl + F"));
+		itemFelicitar.setOnAction(felicitar -> felicitar());
+		
+		menu2.getItems().addAll(itemBuscar,itemFelicitar);
+		barra.getMenus().add(menu2);
+		
+		Menu menu3 = new Menu("Help");
+		itemAbout = new MenuItem("About");
+		itemAbout.setAccelerator(KeyCombination.keyCombination("Ctrl + A"));
+		itemAbout.setOnAction(about -> about());
+		menu3.getItems().add(itemAbout);
+		barra.getMenus().add(menu3);
 		return barra;
 	}
 
