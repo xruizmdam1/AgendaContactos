@@ -1,6 +1,7 @@
 package agenda.interfaz;
 
 import java.io.File;
+import java.io.IOException;
 
 import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
@@ -97,39 +98,37 @@ public class GuiAgenda extends Application {
 	}
 
 	private MenuBar crearBarraMenu() {
-		
+
 		MenuBar barra = new MenuBar();
-		Menu menu = new Menu ("Archivo");
+		Menu menu = new Menu("Archivo");
 		itemImportar = new MenuItem("Importar Agenda");
 		itemImportar.setAccelerator(KeyCombination.keyCombination("Ctrl + l"));
 		itemImportar.setOnAction(importar -> importarAgenda());
 		itemImportar.setDisable(false);
-		
+
 		itemExportarPersonales = new MenuItem("Exportar agenda");
 		itemExportarPersonales.setDisable(true);
 		itemExportarPersonales.setAccelerator(KeyCombination.keyCombination("Ctrl + E"));
 		itemExportarPersonales.setOnAction(exportar -> exportarPersonales());
-	
-		
+
 		itemSalir = new MenuItem("Salir");
 		itemSalir.setAccelerator(KeyCombination.keyCombination("Ctrl + S"));
 		itemSalir.setOnAction(salir -> salir());
-		menu.getItems().addAll(itemImportar,itemExportarPersonales,itemSalir);
+		menu.getItems().addAll(itemImportar, itemExportarPersonales, itemSalir);
 		barra.getMenus().add(menu);
-		
-		
+
 		Menu menu2 = new Menu("Opciones");
 		itemBuscar = new MenuItem("Buscar");
 		itemBuscar.setAccelerator(KeyCombination.keyCombination("Ctrl + B"));
 		itemBuscar.setOnAction(buscar -> buscar());
-		
+
 		itemFelicitar = new MenuItem("Felicitar");
 		itemFelicitar.setAccelerator(KeyCombination.keyCombination("Ctrl + F"));
 		itemFelicitar.setOnAction(felicitar -> felicitar());
-		
-		menu2.getItems().addAll(itemBuscar,itemFelicitar);
+
+		menu2.getItems().addAll(itemBuscar, itemFelicitar);
 		barra.getMenus().add(menu2);
-		
+
 		Menu menu3 = new Menu("Help");
 		itemAbout = new MenuItem("About");
 		itemAbout.setAccelerator(KeyCombination.keyCombination("Ctrl + A"));
@@ -141,22 +140,30 @@ public class GuiAgenda extends Application {
 
 	private void importarAgenda() {
 		FileChooser fichero = new FileChooser();
-		 fichero.setTitle("Ingresa el nombre del fichero");
-		 fichero.setInitialDirectory(new File("."));
-		 fichero.getExtensionFilters()
-		 .addAll(new ExtensionFilter("java",
-		 "*.java"));
-		 File f = fichero.showOpenDialog(null);
-		 if (f != null) {
-		 System.out.println("Fichero elegido: "
-		 + f.getName());
-		 }
+		fichero.setTitle("Ingresa el nombre del fichero");
+		fichero.setInitialDirectory(new File("."));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.java"));
+		File f = fichero.showOpenDialog(null);
+		if (f != null) {
+			System.out.println("Fichero elegido: " + f.getName());
+		}
+		System.out.println("el nº de líneas erróneas detectadas");
 
-		 AgendaIO.importar(agenda, f.getName());
+		AgendaIO.importar(agenda, f.getName());
 	}
 
-	private void exportarPersonales() {
-		
+	private void exportarPersonales() throws IOException {
+		FileChooser fichero = new FileChooser();
+		fichero.setTitle("Ingresa el nombre del fichero");
+		fichero.setInitialDirectory(new File("."));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.java"));
+		File f = fichero.showOpenDialog(null);
+		if (f != null) {
+			System.out.println("Fichero elegido: " + f.getName());
+		}
+		System.out.println("“Exportados datos personales”");
+
+		AgendaIO.exportarPersonales(agenda, f.getName());
 	}
 
 	/**
@@ -187,8 +194,7 @@ public class GuiAgenda extends Application {
 
 	private void felicitar() {
 		clear();
-		// a completar
-
+		agenda.felicitar();
 	}
 
 	private void buscar() {
@@ -200,7 +206,9 @@ public class GuiAgenda extends Application {
 	}
 
 	private void about() {
-		// a completar
+		// DialogPane dialogPane = alert.getDialogPane();
+		// dialogPane.getStylesheets().add(getClass().
+		// getResource("/application.css").toExternalForm());
 
 	}
 
