@@ -109,7 +109,13 @@ public class GuiAgenda extends Application {
 		itemExportarPersonales = new MenuItem("Exportar agenda");
 		itemExportarPersonales.setDisable(true);
 		itemExportarPersonales.setAccelerator(KeyCombination.keyCombination("Ctrl + E"));
-		itemExportarPersonales.setOnAction(exportar -> exportarPersonales());
+		itemExportarPersonales.setOnAction(exportar -> {
+			try {
+				exportarPersonales();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
 
 		itemSalir = new MenuItem("Salir");
 		itemSalir.setAccelerator(KeyCombination.keyCombination("Ctrl + S"));
