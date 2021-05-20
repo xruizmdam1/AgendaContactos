@@ -417,7 +417,6 @@ public class GuiAgenda extends Application {
 				alerta.setContentText("La Agenda tiene contactos");
 			}
 		}
-
 		cogerFoco();
 
 	}
