@@ -65,6 +65,7 @@ public class GuiAgenda extends Application {
 		Scene scene = new Scene(root, 1100, 700);
 		stage.setScene(scene);
 		stage.setTitle("Agenda de contactos");
+		stage.setResizable(false);
 		scene.getStylesheets().add((getClass().getResource("/application.css").toExternalForm()));
 		stage.show();
 
@@ -91,10 +92,47 @@ public class GuiAgenda extends Application {
 	}
 
 	private VBox crearPanelBotones() {
-		// a completar
+		
 		VBox panel = new VBox();
-
+			
+			txtBuscar = new TextField("Buscar");
+			txtBuscar.getStyleClass().add("text-field");
+			txtBuscar.setMinHeight(40);
+			VBox.setMargin(txtBuscar, new Insets(0,0,40,0));
+			
+			rbtListarTodo = new RadioButton("Listar toda la agenda");
+			rbtListarTodo.getStyleClass().add("radio-button");
+			
+			rbtListarSoloNumero = new RadioButton("Listar nº contactos");
+			rbtListarSoloNumero.getStyleClass().add("radio-button");
+			
+			btnListar = new Button("Listar");
+			btnListar.getStyleClass().add("botones");
+			btnListar.setPrefWidth(250);
+			VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
+			
+			btnPersonalesEnLetra = new Button("Contactos personales en letra");
+			btnPersonalesEnLetra.getStyleClass().add("botones");
+			btnPersonalesEnLetra.setPrefWidth(250);
+			
+			btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
+			btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
+			btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
+			
+			btnClear = new Button("Clear");
+			btnClear.getStyleClass().add("botones");
+			btnClear.setPrefWidth(250);
+			VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
+			
+			btnSalir = new Button("Salir");
+			btnSalir.getStyleClass().add("botones");
+			btnSalir.setPrefWidth(250);
+			
+		panel.setSpacing(10);
+		panel.setPadding(new Insets(10));
+		panel.getChildren().addAll(txtBuscar, rbtListarTodo, rbtListarSoloNumero, btnListar, btnPersonalesEnLetra, btnPersonalesOrdenadosPorFecha, btnClear, btnSalir);
 		return panel;
+		
 	}
 
 	private GridPane crearPanelLetras() {
