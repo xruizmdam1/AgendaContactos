@@ -108,24 +108,29 @@ public class GuiAgenda extends Application {
 			btnListar = new Button("Listar");
 			btnListar.getStyleClass().add("botones");
 			btnListar.setPrefWidth(250);
+			btnListar.setOnAction(e -> listar());
 			VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
 			
 			btnPersonalesEnLetra = new Button("Contactos personales en letra");
 			btnPersonalesEnLetra.getStyleClass().add("botones");
 			btnPersonalesEnLetra.setPrefWidth(250);
+			btnPersonalesEnLetra.setOnAction(e -> contactosPersonalesEnLetra());
 			
 			btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
 			btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
 			btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
+			btnPersonalesOrdenadosPorFecha.setOnAction(e -> personalesOrdenadosPorFecha());
 			
 			btnClear = new Button("Clear");
 			btnClear.getStyleClass().add("botones");
 			btnClear.setPrefWidth(250);
+			btnClear.setOnAction(e -> clear());
 			VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
 			
 			btnSalir = new Button("Salir");
 			btnSalir.getStyleClass().add("botones");
 			btnSalir.setPrefWidth(250);
+			btnSalir.setOnAction(e -> salir());
 			
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
