@@ -93,7 +93,6 @@ public class GuiAgenda extends Application {
 	private VBox crearPanelBotones() {
 
 		VBox panel = new VBox();
-<<<<<<< HEAD
 
 		txtBuscar = new TextField("Buscar");
 		txtBuscar.getStyleClass().add("text-field");
@@ -128,47 +127,44 @@ public class GuiAgenda extends Application {
 		btnSalir.getStyleClass().add("botones");
 		btnSalir.setPrefWidth(250);
 
-=======
-			
-			txtBuscar = new TextField("Buscar");
-			txtBuscar.getStyleClass().add("text-field");
-			txtBuscar.setMinHeight(40);
-			VBox.setMargin(txtBuscar, new Insets(0,0,40,0));
-			
-			rbtListarTodo = new RadioButton("Listar toda la agenda");
-			rbtListarTodo.getStyleClass().add("radio-button");
-			
-			rbtListarSoloNumero = new RadioButton("Listar nº contactos");
-			rbtListarSoloNumero.getStyleClass().add("radio-button");
-			
-			btnListar = new Button("Listar");
-			btnListar.getStyleClass().add("botones");
-			btnListar.setPrefWidth(250);
-			btnListar.setOnAction(e -> listar());
-			VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
-			
-			btnPersonalesEnLetra = new Button("Contactos personales en letra");
-			btnPersonalesEnLetra.getStyleClass().add("botones");
-			btnPersonalesEnLetra.setPrefWidth(250);
-			btnPersonalesEnLetra.setOnAction(e -> contactosPersonalesEnLetra());
-			
-			btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
-			btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
-			btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
-			btnPersonalesOrdenadosPorFecha.setOnAction(e -> personalesOrdenadosPorFecha());
-			
-			btnClear = new Button("Clear");
-			btnClear.getStyleClass().add("botones");
-			btnClear.setPrefWidth(250);
-			btnClear.setOnAction(e -> clear());
-			VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
-			
-			btnSalir = new Button("Salir");
-			btnSalir.getStyleClass().add("botones");
-			btnSalir.setPrefWidth(250);
-			btnSalir.setOnAction(e -> salir());
-			
->>>>>>> refs/remotes/origin/master
+		txtBuscar = new TextField("Buscar");
+		txtBuscar.getStyleClass().add("text-field");
+		txtBuscar.setMinHeight(40);
+		VBox.setMargin(txtBuscar, new Insets(0, 0, 40, 0));
+
+		rbtListarTodo = new RadioButton("Listar toda la agenda");
+		rbtListarTodo.getStyleClass().add("radio-button");
+
+		rbtListarSoloNumero = new RadioButton("Listar nº contactos");
+		rbtListarSoloNumero.getStyleClass().add("radio-button");
+
+		btnListar = new Button("Listar");
+		btnListar.getStyleClass().add("botones");
+		btnListar.setPrefWidth(250);
+		btnListar.setOnAction(e -> listar());
+		VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
+
+		btnPersonalesEnLetra = new Button("Contactos personales en letra");
+		btnPersonalesEnLetra.getStyleClass().add("botones");
+		btnPersonalesEnLetra.setPrefWidth(250);
+		btnPersonalesEnLetra.setOnAction(e -> contactosPersonalesEnLetra());
+
+		btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
+		btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
+		btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
+		btnPersonalesOrdenadosPorFecha.setOnAction(e -> personalesOrdenadosPorFecha());
+
+		btnClear = new Button("Clear");
+		btnClear.getStyleClass().add("botones");
+		btnClear.setPrefWidth(250);
+		btnClear.setOnAction(e -> clear());
+		VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
+
+		btnSalir = new Button("Salir");
+		btnSalir.getStyleClass().add("botones");
+		btnSalir.setPrefWidth(250);
+		btnSalir.setOnAction(e -> salir());
+
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
 		panel.getChildren().addAll(txtBuscar, rbtListarTodo, rbtListarSoloNumero, btnListar, btnPersonalesEnLetra,
@@ -178,59 +174,65 @@ public class GuiAgenda extends Application {
 	}
 
 	private GridPane crearPanelLetras() {
-		// a completar
 		GridPane panel = new GridPane();
-		panel.setGridLinesVisible(true);
+//		panel.setGridLinesVisible(true);
 		panel.setPadding(new Insets(10));
 		panel.setHgap(5);
 		panel.setVgap(5);
 
 		ColumnConstraints col1 = new ColumnConstraints();
-		col1.setPercentWidth(100);
+		col1.setPercentWidth(10);
 		ColumnConstraints col2 = new ColumnConstraints();
-		col2.setPercentWidth(100);
+		col2.setPercentWidth(10);
 		ColumnConstraints col3 = new ColumnConstraints();
-		col3.setPercentWidth(100);
+		col3.setPercentWidth(10);
+		;
 		ColumnConstraints col4 = new ColumnConstraints();
-		col4.setPercentWidth(100);
+		col4.setPercentWidth(10);
 		ColumnConstraints col5 = new ColumnConstraints();
-		col5.setPercentWidth(100);
+		col5.setPercentWidth(10);
 		ColumnConstraints col6 = new ColumnConstraints();
-		col6.setPercentWidth(100);
+		col6.setPercentWidth(10);
 		ColumnConstraints col7 = new ColumnConstraints();
-		col7.setPercentWidth(100);
+		col7.setPercentWidth(10);
 		ColumnConstraints col8 = new ColumnConstraints();
-		col8.setPercentWidth(100);
+		col8.setPercentWidth(10);
 		ColumnConstraints col9 = new ColumnConstraints();
-		col9.setPercentWidth(100);
+		col9.setPercentWidth(10);
 		ColumnConstraints col10 = new ColumnConstraints();
-		col10.setPercentWidth(100);
+		col10.setPercentWidth(10);
 		ColumnConstraints col11 = new ColumnConstraints();
-		col11.setPercentWidth(100);
+		col11.setPercentWidth(10);
 		ColumnConstraints col12 = new ColumnConstraints();
-		col12.setPercentWidth(100);
+		col12.setPercentWidth(10);
 		ColumnConstraints col13 = new ColumnConstraints();
-		col13.setPercentWidth(100);
+		col13.setPercentWidth(10);
 		ColumnConstraints col14 = new ColumnConstraints();
-		col14.setPercentWidth(100);
+		col14.setPercentWidth(10);
 
 		RowConstraints fila1 = new RowConstraints();
 		fila1.setPercentHeight(100);
 		RowConstraints fila2 = new RowConstraints();
 		fila2.setPercentHeight(100);
 
-		panel.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6, col7, col8);
+		panel.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12,
+				col13, col14);
 		panel.getRowConstraints().addAll(fila1, fila2);
 
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		Button btnLetra;
-		int contadorCol = 0;
-		for (int i = 0; i < abecedario.length(); i++) {
-			btnLetra = new Button(String.valueOf(abecedario.charAt(i)));
-			panel.add(btnLetra, contadorCol, 0);
-
-			contadorCol++;
-
+		int c = 0;
+		for (int i = 0; i < 28; i++) {
+			int f = 0;
+			while (f < 14 && c <= abecedario.length() - 1) {
+				char letra = abecedario.charAt(c);
+				panel.add(btnLetra = new Button(String.valueOf(letra).toUpperCase()), f, i);
+				btnLetra.getStyleClass().add("botonletra");
+				btnLetra.setMaxWidth(Double.MAX_VALUE);
+				btnLetra.setOnAction(e -> contactosEnLetra(letra));
+				f++;
+				c++;
+			}
 		}
 		return panel;
 	}
