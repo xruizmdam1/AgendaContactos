@@ -365,25 +365,22 @@ public class GuiAgenda extends Application {
 	 */
 	private void listar() {
 		clear();
-		// a completar
-
+		areaTexto.setText(agenda.toString());
 	}
 
 	private void personalesOrdenadosPorFecha() {
 		clear();
-		// a completar
-
+		
 	}
 
 	private void contactosPersonalesEnLetra() {
 		clear();
-		// a completar
-
+		
 	}
 
 	private void contactosEnLetra(char letra) {
 		clear();
-		// a completar
+		
 	}
 
 	private void felicitar() {
