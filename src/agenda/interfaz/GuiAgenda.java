@@ -6,11 +6,15 @@ package agenda.interfaz;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
 import agenda.modelo.Contacto;
+import agenda.modelo.Personal;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -310,18 +314,16 @@ public class GuiAgenda extends Application {
 
 	private void contactosPersonalesEnLetra() {
 		clear();
-		ChoiceDialog<Character> dialogo = new ChoiceDialog<>();
-		dialogo.setTitle("ELECCION DE LETRA");
-		dialogo.setHeaderText(null);
-		dialogo.setContentText("SELECCIONA UNA LETRA");
-		dialogo.showAndWait();
-		char i = dialogo.getResult();
-		 agenda.personalesEnLetra(i).forEach(personal -> personal.toString());
 		
-	}
+		
+		
+		}
+
+	
 
 	private void contactosEnLetra(char letra) {
 		clear();
+		
 		
 	}
 
