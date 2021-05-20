@@ -21,6 +21,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -92,7 +93,11 @@ public class GuiAgenda extends Application {
 
 	private VBox crearPanelBotones() {
 
+<<<<<<< HEAD
 		VBox panel = new VBox();
+=======
+		VBox panel = new VBox();
+>>>>>>> refs/remotes/origin/master
 
 		txtBuscar = new TextField("Buscar");
 		txtBuscar.getStyleClass().add("text-field");
@@ -105,6 +110,10 @@ public class GuiAgenda extends Application {
 		rbtListarSoloNumero = new RadioButton("Listar nº contactos");
 		rbtListarSoloNumero.getStyleClass().add("radio-button");
 
+		ToggleGroup grupo = new ToggleGroup();
+		rbtListarTodo.setToggleGroup(grupo);
+		rbtListarSoloNumero.setToggleGroup(grupo);
+		
 		btnListar = new Button("Listar");
 		btnListar.getStyleClass().add("botones");
 		btnListar.setPrefWidth(250);
@@ -125,6 +134,7 @@ public class GuiAgenda extends Application {
 
 		btnSalir = new Button("Salir");
 		btnSalir.getStyleClass().add("botones");
+<<<<<<< HEAD
 		btnSalir.setPrefWidth(250);
 
 		txtBuscar = new TextField("Buscar");
@@ -165,6 +175,48 @@ public class GuiAgenda extends Application {
 		btnSalir.setPrefWidth(250);
 		btnSalir.setOnAction(e -> salir());
 
+=======
+		btnSalir.setPrefWidth(250);
+			
+			txtBuscar = new TextField("Buscar");
+			txtBuscar.getStyleClass().add("text-field");
+			txtBuscar.setMinHeight(40);
+			VBox.setMargin(txtBuscar, new Insets(0,0,40,0));
+			
+			rbtListarTodo = new RadioButton("Listar toda la agenda");
+			rbtListarTodo.getStyleClass().add("radio-button");
+			
+			rbtListarSoloNumero = new RadioButton("Listar nº contactos");
+			rbtListarSoloNumero.getStyleClass().add("radio-button");
+			
+			btnListar = new Button("Listar");
+			btnListar.getStyleClass().add("botones");
+			btnListar.setPrefWidth(250);
+			btnListar.setOnAction(e -> listar());
+			VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
+			
+			btnPersonalesEnLetra = new Button("Contactos personales en letra");
+			btnPersonalesEnLetra.getStyleClass().add("botones");
+			btnPersonalesEnLetra.setPrefWidth(250);
+			btnPersonalesEnLetra.setOnAction(e -> contactosPersonalesEnLetra());
+			
+			btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
+			btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
+			btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
+			btnPersonalesOrdenadosPorFecha.setOnAction(e -> personalesOrdenadosPorFecha());
+			
+			btnClear = new Button("Clear");
+			btnClear.getStyleClass().add("botones");
+			btnClear.setPrefWidth(250);
+			btnClear.setOnAction(e -> clear());
+			VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
+			
+			btnSalir = new Button("Salir");
+			btnSalir.getStyleClass().add("botones");
+			btnSalir.setPrefWidth(250);
+			btnSalir.setOnAction(e -> salir());
+			
+>>>>>>> refs/remotes/origin/master
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
 		panel.getChildren().addAll(txtBuscar, rbtListarTodo, rbtListarSoloNumero, btnListar, btnPersonalesEnLetra,
