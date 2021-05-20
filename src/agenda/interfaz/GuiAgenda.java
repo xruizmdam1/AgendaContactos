@@ -92,12 +92,8 @@ public class GuiAgenda extends Application {
 	}
 
 	private VBox crearPanelBotones() {
-
-<<<<<<< HEAD
+		
 		VBox panel = new VBox();
-=======
-		VBox panel = new VBox();
->>>>>>> refs/remotes/origin/master
 
 		txtBuscar = new TextField("Buscar");
 		txtBuscar.getStyleClass().add("text-field");
@@ -134,7 +130,6 @@ public class GuiAgenda extends Application {
 
 		btnSalir = new Button("Salir");
 		btnSalir.getStyleClass().add("botones");
-<<<<<<< HEAD
 		btnSalir.setPrefWidth(250);
 
 		txtBuscar = new TextField("Buscar");
@@ -174,8 +169,6 @@ public class GuiAgenda extends Application {
 		btnSalir.getStyleClass().add("botones");
 		btnSalir.setPrefWidth(250);
 		btnSalir.setOnAction(e -> salir());
-
-=======
 		btnSalir.setPrefWidth(250);
 			
 			txtBuscar = new TextField("Buscar");
@@ -216,7 +209,6 @@ public class GuiAgenda extends Application {
 			btnSalir.setPrefWidth(250);
 			btnSalir.setOnAction(e -> salir());
 			
->>>>>>> refs/remotes/origin/master
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
 		panel.getChildren().addAll(txtBuscar, rbtListarTodo, rbtListarSoloNumero, btnListar, btnPersonalesEnLetra,
