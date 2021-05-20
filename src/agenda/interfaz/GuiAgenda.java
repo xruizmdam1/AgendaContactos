@@ -21,7 +21,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -109,17 +108,13 @@ public class GuiAgenda extends Application {
 		Menu menu = new Menu("Archivo");
 		itemImportar = new MenuItem("Importar Agenda");
 		itemImportar.setAccelerator(KeyCombination.keyCombination("Ctrl + l"));
-		itemImportar.setOnAction(importar -> importarAgenda());
+		itemImportar.setOnAction(ev -> importarAgenda());
 		itemImportar.setDisable(false);
 
 		itemExportarPersonales = new MenuItem("Exportar agenda");
 		itemExportarPersonales.setAccelerator(KeyCombination.keyCombination("Ctrl + E"));
-		itemExportarPersonales.setOnAction(exportar -> {
-			try {
-				this.exportarPersonales();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		itemExportarPersonales.setOnAction(ev -> {
+			exportarPersonales();
 		});
 		itemExportarPersonales.setDisable(true);
 
@@ -158,39 +153,31 @@ public class GuiAgenda extends Application {
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
+			itemImportar.setDisable(true);
+			itemExportarPersonales.setDisable(false);
+			// AgendaIO.importar(agenda, f.getAbsolutePath());
+			areaTexto.setText("Importada agenda\n\n Número de errores :" + AgendaIO.importar(agenda, f.getName()));
+			itemImportar.setDisable(true);
 		}
 
-		itemImportar.setDisable(true);
-		itemExportarPersonales.setDisable(false);
-		// AgendaIO.importar(agenda, f.getAbsolutePath());
-		areaTexto.setText("Importada agenda\n\n Número de errores :" + AgendaIO.importar(agenda, f.getAbsolutePath()));
 	}
 
-	@SuppressWarnings("unused")
-	private void exportarPersonales() throws IOException {
-		/*
-		 * FileChooser fichero = new FileChooser();
-		 * fichero.setTitle("Ingresa el nombre del fichero");
-		 * fichero.setInitialDirectory(new File("."));
-		 * fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
-		 * File f = fichero.showOpenDialog(null); if (f != null) {
-		 * System.out.println("Fichero elegido: " + f.getName()); }
-		 * System.out.println("“Exportados datos personales”");
-		 * 
-		 * AgendaIO.exportarPersonales(agenda, f.getName());
-		 */
+	private void exportarPersonales() {
 
-		TextInputDialog texto = new TextInputDialog("Introduzca el nombre del fichero");
-		texto.setContentText("Nombre para el fichero");
-		texto.showAndWait();
+		FileChooser fichero = new FileChooser();
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("txt", "*.txt"));
+		File f = fichero.showSaveDialog(null);
 
-		itemExportarPersonales.setDisable(false);
-		if (texto == null) {
-			AgendaIO.exportarPersonales(agenda, texto.getResult());
-			areaTexto.setText("Se han exportado los datos personales");
-		} else {
-			areaTexto.setText("Error al exportar los datos");
+		try {
+			AgendaIO.exportarPersonales(agenda, f.getName());
+			areaTexto.setText("Datos Personales exportados al fichero " + f.getName());
+		} catch (IOException e) {
+			areaTexto.setText("Error al intentar exportar los datos al fichero" + f.getName() + e.getMessage());
+
 		}
+
+		itemExportarPersonales.setDisable(true);
+		itemImportar.setDisable(false);
 
 	}
 
