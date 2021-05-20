@@ -388,11 +388,13 @@ public class GuiAgenda extends Application {
 
 	private void felicitar() {
 		clear();
-		String str = "";
-		str += java.time.LocalDate.now() + "\n";
-		agenda.felicitar();
-		areaTexto.setText(str.toString());
-
+		if (agenda.felicitar().isEmpty()) {
+			areaTexto.appendText("No hay nadie para felicitar");
+		}
+		else {
+			areaTexto.appendText("Hoy felicidamos a:\n" + agenda.felicitar());
+		}
+		
 	}
 
 	private void buscar() {
