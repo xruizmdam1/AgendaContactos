@@ -2,9 +2,11 @@ package agenda.interfaz;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
+import agenda.modelo.Contacto;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -62,7 +64,7 @@ public class GuiAgenda extends Application {
 		Scene scene = new Scene(root, 1100, 700);
 		stage.setScene(scene);
 		stage.setTitle("Agenda de contactos");
-		scene.getStylesheets().add(("file:application.css"));
+		scene.getStylesheets().add((getClass().getResource("/application.css").toExternalForm()));
 		stage.show();
 
 	}
@@ -151,7 +153,7 @@ public class GuiAgenda extends Application {
 	private void importarAgenda() {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
+		fichero.getExtensionFilters().addAll(new ExtensionFilter("CSV", "*.csv"));
 		fichero.setInitialDirectory(new File("."));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
@@ -229,6 +231,21 @@ public class GuiAgenda extends Application {
 
 	private void buscar() {
 		clear();
+		Alert alerta = new Alert(AlertType.INFORMATION);
+		alerta.setTitle("Mensaje");
+
+		if (txtBuscar.getText().isBlank()) {
+			alerta.setContentText("Teclee un valor");
+
+		} else {
+			List<Contacto> str;
+			str = agenda.buscarContactos(txtBuscar.getText());
+			if (str == null) {
+				alerta.setContentText("La agenda no tiene contactos");
+			} else {
+				alerta.setContentText("La Agenda tiene contactos");
+			}
+		}
 
 		cogerFoco();
 
