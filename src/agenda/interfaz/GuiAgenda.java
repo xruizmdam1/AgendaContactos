@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -103,6 +104,7 @@ public class GuiAgenda extends Application {
 		txtBuscar.getStyleClass().add("text-field");
 		txtBuscar.setMinHeight(40);
 		VBox.setMargin(txtBuscar, new Insets(0, 0, 40, 0));
+		txtBuscar.setOnAction(ev -> buscar());
 
 		rbtListarTodo = new RadioButton("Listar toda la agenda");
 		rbtListarTodo.getStyleClass().add("radio-button");
@@ -118,23 +120,28 @@ public class GuiAgenda extends Application {
 		btnListar.getStyleClass().add("botones");
 		btnListar.setPrefWidth(250);
 		VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
+		btnListar.setOnAction(ev -> listar());
 
 		btnPersonalesEnLetra = new Button("Contactos personales en letra");
 		btnPersonalesEnLetra.getStyleClass().add("botones");
 		btnPersonalesEnLetra.setPrefWidth(250);
+		btnPersonalesEnLetra.setOnAction(ev -> contactosPersonalesEnLetra());
 
 		btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
 		btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
 		btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
+		btnPersonalesOrdenadosPorFecha.setOnAction(ev -> personalesOrdenadosPorFecha());
 
 		btnClear = new Button("Clear");
 		btnClear.getStyleClass().add("botones");
 		btnClear.setPrefWidth(250);
 		VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
+		btnClear.setOnAction(ev -> clear());
 
 		btnSalir = new Button("Salir");
 		btnSalir.getStyleClass().add("botones");
 		btnSalir.setPrefWidth(250);
+		btnSalir.setOnAction(ev -> salir());
 
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
@@ -298,10 +305,18 @@ public class GuiAgenda extends Application {
 	private void personalesOrdenadosPorFecha() {
 		clear();
 		
+		
 	}
 
 	private void contactosPersonalesEnLetra() {
 		clear();
+		ChoiceDialog<Character> dialogo = new ChoiceDialog<>();
+		dialogo.setTitle("ELECCION DE LETRA");
+		dialogo.setHeaderText(null);
+		dialogo.setContentText("SELECCIONA UNA LETRA");
+		dialogo.showAndWait();
+		char i = dialogo.getResult();
+		 agenda.personalesEnLetra(i).forEach(personal -> personal.toString());
 		
 	}
 
