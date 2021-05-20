@@ -23,7 +23,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -99,6 +101,47 @@ public class GuiAgenda extends Application {
 		// a completar
 		GridPane panel = new GridPane();
 		panel.setGridLinesVisible(true);
+		panel.setPadding(new Insets(10));
+		panel.setHgap(5);
+		panel.setVgap(5);
+
+		ColumnConstraints col1 = new ColumnConstraints();
+		col1.setPercentWidth(100);
+		ColumnConstraints col2 = new ColumnConstraints();
+		col2.setPercentWidth(100);
+		ColumnConstraints col3 = new ColumnConstraints();
+		col3.setPercentWidth(100);
+		ColumnConstraints col4 = new ColumnConstraints();
+		col4.setPercentWidth(100);
+		ColumnConstraints col5 = new ColumnConstraints();
+		col5.setPercentWidth(100);
+		ColumnConstraints col6 = new ColumnConstraints();
+		col6.setPercentWidth(100);
+		ColumnConstraints col7 = new ColumnConstraints();
+		col7.setPercentWidth(100);
+		ColumnConstraints col8 = new ColumnConstraints();
+		col8.setPercentWidth(100);
+		ColumnConstraints col9 = new ColumnConstraints();
+		col9.setPercentWidth(100);
+		ColumnConstraints col10 = new ColumnConstraints();
+		col10.setPercentWidth(100);
+		ColumnConstraints col11 = new ColumnConstraints();
+		col11.setPercentWidth(100);
+		ColumnConstraints col12 = new ColumnConstraints();
+		col12.setPercentWidth(100);
+		ColumnConstraints col13 = new ColumnConstraints();
+		col13.setPercentWidth(100);
+		ColumnConstraints col14 = new ColumnConstraints();
+		col14.setPercentWidth(100);
+
+		RowConstraints fila1 = new RowConstraints();
+		fila1.setPercentHeight(100);
+		RowConstraints fila2 = new RowConstraints();
+		fila2.setPercentHeight(100);
+
+		panel.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6, col7, col8);
+		panel.getRowConstraints().addAll(fila1, fila2);
+
 		return panel;
 	}
 
