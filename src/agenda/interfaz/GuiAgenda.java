@@ -21,6 +21,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -93,7 +94,6 @@ public class GuiAgenda extends Application {
 	private VBox crearPanelBotones() {
 
 		VBox panel = new VBox();
-<<<<<<< HEAD
 
 		txtBuscar = new TextField("Buscar");
 		txtBuscar.getStyleClass().add("text-field");
@@ -106,6 +106,10 @@ public class GuiAgenda extends Application {
 		rbtListarSoloNumero = new RadioButton("Listar nº contactos");
 		rbtListarSoloNumero.getStyleClass().add("radio-button");
 
+		ToggleGroup grupo = new ToggleGroup();
+		rbtListarTodo.setToggleGroup(grupo);
+		rbtListarSoloNumero.setToggleGroup(grupo);
+		
 		btnListar = new Button("Listar");
 		btnListar.getStyleClass().add("botones");
 		btnListar.setPrefWidth(250);
@@ -127,8 +131,6 @@ public class GuiAgenda extends Application {
 		btnSalir = new Button("Salir");
 		btnSalir.getStyleClass().add("botones");
 		btnSalir.setPrefWidth(250);
-
-=======
 			
 			txtBuscar = new TextField("Buscar");
 			txtBuscar.getStyleClass().add("text-field");
@@ -168,7 +170,6 @@ public class GuiAgenda extends Application {
 			btnSalir.setPrefWidth(250);
 			btnSalir.setOnAction(e -> salir());
 			
->>>>>>> refs/remotes/origin/master
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
 		panel.getChildren().addAll(txtBuscar, rbtListarTodo, rbtListarSoloNumero, btnListar, btnPersonalesEnLetra,
