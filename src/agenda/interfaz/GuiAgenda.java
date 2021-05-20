@@ -114,11 +114,12 @@ public class GuiAgenda extends Application {
 		itemExportarPersonales.setAccelerator(KeyCombination.keyCombination("Ctrl + E"));
 		itemExportarPersonales.setOnAction(exportar -> {
 			try {
-				exportarPersonales();
+				this.exportarPersonales();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		});
+		itemExportarPersonales.setDisable(true);
 
 		itemSalir = new MenuItem("Salir");
 		itemSalir.setAccelerator(KeyCombination.keyCombination("Ctrl + S"));
@@ -151,6 +152,7 @@ public class GuiAgenda extends Application {
 		FileChooser fichero = new FileChooser();
 		fichero.setTitle("Ingresa el nombre del fichero");
 		fichero.getExtensionFilters().addAll(new ExtensionFilter("java", "*.csv"));
+		fichero.setInitialDirectory(new File("."));
 		File f = fichero.showOpenDialog(null);
 		if (f != null) {
 			System.out.println("Fichero elegido: " + f.getName());
@@ -158,8 +160,8 @@ public class GuiAgenda extends Application {
 
 		itemImportar.setDisable(true);
 		itemExportarPersonales.setDisable(false);
-		int i = AgendaIO.importar(agenda, f.getAbsolutePath());
-		areaTexto.setText("Importada agenda\n\n Número de errores :" + i);
+		// AgendaIO.importar(agenda, f.getAbsolutePath());
+		areaTexto.setText("Importada agenda\n\n Número de errores :" + AgendaIO.importar(agenda, f.getAbsolutePath()));
 	}
 
 	@SuppressWarnings("unused")
@@ -235,7 +237,7 @@ public class GuiAgenda extends Application {
 	private void about() {
 		Alert alerta = new Alert(AlertType.INFORMATION);
 		alerta.setTitle("About de Agenda");
-		alerta.setHeaderText(null);
+		alerta.setHeaderText("");
 		alerta.setContentText("Mi agenda contactos");
 
 		DialogPane dialogPane = alerta.getDialogPane();
