@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -26,44 +27,50 @@ public class AgendaContactos {
 			HashSet<Contacto> hs = new HashSet<>();
 			hs.add(contacto);
 			agenda.put(contacto.getPrimeraLetra(), hs);
+		} else {
+			agenda.get(contacto.getPrimeraLetra()).add(contacto);
 		}
 	}
 
-	public void contactosEnLetra(char letra) {
-		ArrayList<Contacto> contactos = new ArrayList<>();
-		Set<Map.Entry<Character, Set<Contacto>>> grupo = agenda.entrySet();
-		Iterator<Map.Entry<Character, Set<Contacto>>> it = grupo.iterator();
-		while (it.hasNext()) {
-			Map.Entry<Character, Set<Contacto>> map = it.next();
-			for (Contacto contacto : map.getValue()) {
-				if (contacto.getPrimeraLetra().equals(letra)) {
-					contactos.add(contacto);
-				}
+	public ArrayList<Contacto> contactosEnLetra(char letra) {
+		ArrayList<Contacto> contactosEnLetra = new ArrayList<>();
+		letra = Character.toUpperCase(letra);
+		if (agenda.containsKey(letra)) {
+			Set<Contacto> contactos = agenda.get(letra);
+			Iterator<Contacto> it = contactos.iterator();
+			while (it.hasNext()) {
+				Contacto contacto = it.next();
+				contactosEnLetra.add(contacto);
 			}
 		}
+		return contactosEnLetra;
 	}
 
-	public void totalContactos() {
+	public int totalContactos() {
 		int total = 0;
-		Set<Character> claves = agenda.keySet();
-		for (Character clave : claves) {
-			total++;
+		for (Map.Entry<Character, Set<Contacto>> contactos : agenda.entrySet()) {
+			for (Contacto contacto : contactos.getValue()) {
+				total++;
+			}
 		}
+		return total;
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		ArrayList<Contacto> ar = new ArrayList<>();
-		Set<Map.Entry<Character, Set<Contacto>>> set = agenda.entrySet();
-		Iterator<Map.Entry<Character, Set<Contacto>>> it = set.iterator();
-		while (it.hasNext()) {
-			Map.Entry<Character, Set<Contacto>> map = it.next();
-			for (Contacto contacto : map.getValue()) {
-				sb.append(contacto.toString());
+		String str = getClass().getSimpleName() + "\n";
+
+		Set<Map.Entry<Character, Set<Contacto>>> entradas = agenda.entrySet();
+
+		for (Entry<Character, Set<Contacto>> entry : entradas) {
+			str += "\n" + entry.getKey() + " (" + entry.getValue().size() + " contacto/s)\n---------------------\n";
+			Set<Contacto> valores = entry.getValue();
+			for (Contacto valor : valores) {
+				str += valor.toString() + "\n";
 			}
 		}
-		return sb.toString();
+		str += "---------------------\n(" + totalContactos() + " Contacto/s)\n";
+		return str;
 	}
 
 	public List<Contacto> buscarContactos(String texto) {
@@ -85,7 +92,11 @@ public class AgendaContactos {
 	public List<Personal> personalesEnLetra(char letra) {
 		letra = Character.toUpperCase(letra);
 		ArrayList<Personal> personalesEnLetra = new ArrayList<>();
-		for (Contacto contacto : agenda.get(letra)) {
+		Set<Contacto> contactos = agenda.get(letra);
+		if (contactos == null) {
+			return null;
+		}
+		for (Contacto contacto : contactos) {
 			if (contacto instanceof Personal) {
 				if (contacto.getPrimeraLetra().equals(letra)) {
 					personalesEnLetra.add((Personal) contacto);

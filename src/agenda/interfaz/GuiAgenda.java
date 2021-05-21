@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -119,28 +120,28 @@ public class GuiAgenda extends Application {
 		btnListar.getStyleClass().add("botones");
 		btnListar.setPrefWidth(250);
 		VBox.setMargin(btnListar, new Insets(0, 0, 40, 0));
-		btnListar.setOnAction(ev -> listar());
+		btnListar.setOnAction(e -> listar());
 
 		btnPersonalesEnLetra = new Button("Contactos personales en letra");
 		btnPersonalesEnLetra.getStyleClass().add("botones");
 		btnPersonalesEnLetra.setPrefWidth(250);
-		btnPersonalesEnLetra.setOnAction(ev -> contactosPersonalesEnLetra());
+		btnPersonalesEnLetra.setOnAction(e -> contactosPersonalesEnLetra());
 
 		btnPersonalesOrdenadosPorFecha = new Button("Contactos personales\n ordenados por fecha");
 		btnPersonalesOrdenadosPorFecha.getStyleClass().add("botones");
 		btnPersonalesOrdenadosPorFecha.setPrefWidth(250);
-		btnPersonalesOrdenadosPorFecha.setOnAction(ev -> personalesOrdenadosPorFecha());
+		btnPersonalesOrdenadosPorFecha.setOnAction(e -> personalesOrdenadosPorFecha());
 
 		btnClear = new Button("Clear");
 		btnClear.getStyleClass().add("botones");
 		btnClear.setPrefWidth(250);
 		VBox.setMargin(btnClear, new Insets(40, 0, 0, 0));
-		btnClear.setOnAction(ev -> clear());
+		btnClear.setOnAction(e -> clear());
 
 		btnSalir = new Button("Salir");
 		btnSalir.getStyleClass().add("botones");
 		btnSalir.setPrefWidth(250);
-		btnSalir.setOnAction(ev -> salir());
+		btnSalir.setOnAction(e -> salir());
 
 		panel.setSpacing(10);
 		panel.setPadding(new Insets(10));
@@ -308,22 +309,23 @@ public class GuiAgenda extends Application {
 
 	private void contactosPersonalesEnLetra() {
 		clear();
+		ChoiceDialog<Character> dialogo = new ChoiceDialog<>();
+		String letras = "abcdefghijklmnñopqrstuvwxyz".toUpperCase();
+		for (int i = 0; i < letras.length(); i++) {
+			dialogo.getItems().add(letras.charAt(i));
+		}
 
+		dialogo.setTitle("Selector de letra");
+		dialogo.setHeaderText("Elige letra");
+		dialogo.showAndWait();
 	}
 
 	private void contactosEnLetra(char letra) {
 		clear();
-		/*
-		 * FileChooser fichero = new FileChooser();
-		 * fichero.setTitle("Ingresa el nombre del fichero");
-		 * fichero.getExtensionFilters().addAll(new ExtensionFilter("CSV", "*.csv"));
-		 * fichero.setInitialDirectory(new File(".")); File f =
-		 * fichero.showOpenDialog(null); if (f == null) {
-		 * areaTexto.setText("Importa primero la agenda"); } else { List<Contacto> str;
-		 * str = agenda.buscarContactos(txtBuscar.getText()); if (str == null) {
-		 * areaTexto.setText("La agenda no tiene contactos"); } else {
-		 * areaTexto.setText("La Agenda tiene contactos"); } }
-		 */
+		List<Contacto> lista = agenda.contactosEnLetra(letra);
+		for (Contacto contacto : lista) {
+			areaTexto.appendText(contacto.toString());
+		}
 
 	}
 
