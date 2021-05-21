@@ -7,7 +7,6 @@ package agenda.interfaz;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
@@ -304,40 +303,28 @@ public class GuiAgenda extends Application {
 
 	private void personalesOrdenadosPorFecha() {
 		clear();
-		
-		
+
 	}
 
 	private void contactosPersonalesEnLetra() {
 		clear();
-		
-		
-		
-		}
 
-	
+	}
 
 	private void contactosEnLetra(char letra) {
 		clear();
-		FileChooser fichero = new FileChooser();
-		fichero.setTitle("Ingresa el nombre del fichero");
-		fichero.getExtensionFilters().addAll(new ExtensionFilter("CSV", "*.csv"));
-		fichero.setInitialDirectory(new File("."));
-		File f = fichero.showOpenDialog(null);
-		if (f == null) {
-			areaTexto.setText("Importa primero la agenda");
-		} else {
-			List<Contacto> str;
-			str = agenda.buscarContactos(txtBuscar.getText());
-			if (str == null) {
-				areaTexto.setText("La agenda no tiene contactos");
-			} else {
-				areaTexto.setText("La Agenda tiene contactos");
-			}
-		}
-		
-		
-		
+		/*
+		 * FileChooser fichero = new FileChooser();
+		 * fichero.setTitle("Ingresa el nombre del fichero");
+		 * fichero.getExtensionFilters().addAll(new ExtensionFilter("CSV", "*.csv"));
+		 * fichero.setInitialDirectory(new File(".")); File f =
+		 * fichero.showOpenDialog(null); if (f == null) {
+		 * areaTexto.setText("Importa primero la agenda"); } else { List<Contacto> str;
+		 * str = agenda.buscarContactos(txtBuscar.getText()); if (str == null) {
+		 * areaTexto.setText("La agenda no tiene contactos"); } else {
+		 * areaTexto.setText("La Agenda tiene contactos"); } }
+		 */
+
 	}
 
 	private void felicitar() {

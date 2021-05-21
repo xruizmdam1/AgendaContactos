@@ -30,7 +30,7 @@ public class AgendaContactos {
 	}
 
 	public void contactosEnLetra(char letra) {
-		ArrayList contactos = new ArrayList<>();
+		ArrayList<Contacto> contactos = new ArrayList<>();
 		Set<Map.Entry<Character, Set<Contacto>>> grupo = agenda.entrySet();
 		Iterator<Map.Entry<Character, Set<Contacto>>> it = grupo.iterator();
 		while (it.hasNext()) {
