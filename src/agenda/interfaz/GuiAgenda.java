@@ -11,6 +11,7 @@ import java.util.List;
 import agenda.io.AgendaIO;
 import agenda.modelo.AgendaContactos;
 import agenda.modelo.Contacto;
+import agenda.modelo.Personal;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -304,6 +305,15 @@ public class GuiAgenda extends Application {
 
 	private void personalesOrdenadosPorFecha() {
 		clear();
+		String letras = "abcdefghijklmnñopqrstuvwxyz".toUpperCase();
+		ChoiceDialog<Character> dialogo = new ChoiceDialog<>();
+		dialogo.setContentText("Seleccione una letra");
+		for (Character i = 0; i < letras.length(); i++) {
+			dialogo.getItems().add(letras.charAt(i));
+		}
+		dialogo.showAndWait();
+
+		List<Personal> lista = agenda.personalesOrdenadosPorFechaNacimiento(dialogo.getSelectedItem());
 
 	}
 
